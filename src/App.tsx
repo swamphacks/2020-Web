@@ -5,6 +5,9 @@ import backBushes from './assets/back-bushes.svg';
 import middleBushes from './assets/middle-bushes.svg';
 import frontBushes from './assets/front-bushes.svg';
 import dock from './assets/dock.png';
+import cloud1 from './assets/cloud-1.svg';
+import cloud2 from './assets/cloud-2.svg';
+import cloud3 from './assets/cloud-3.svg';
 
 // Notes: Used styled components. Use react hooks in functional components for state.
 
@@ -24,6 +27,33 @@ const Sun = styled.img.attrs(props => ({
 }))`
   position: absolute;
   top: 20px;
+`;
+
+const Cloud1 = styled.img.attrs(props => ({
+  src: cloud1,
+  width: 300
+}))`
+  position: absolute;
+  top: 60px;
+  left: 60px;
+`;
+
+const Cloud2 = styled.img.attrs(props => ({
+  src: cloud2,
+  width: 200
+}))`
+  position: absolute;
+  top: 180px;
+  left: 80px;
+`;
+
+const Cloud3 = styled.img.attrs(props => ({
+  src: cloud3,
+  width: 240
+}))`
+  position: absolute;
+  top: 300px;
+  left: -80px;
 `;
 
 const Dock = styled.img.attrs(props => ({
@@ -75,6 +105,9 @@ const App: React.FC = () => {
       <MiddleBushes />
       <FrontBushes />
       <Dock />
+      <Cloud1 />
+      <Cloud2 />
+      <Cloud3 />
     </Background>
   );
 };

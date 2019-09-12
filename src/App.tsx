@@ -8,8 +8,12 @@ import dock from './assets/dock.png';
 import cloud1 from './assets/cloud-1.svg';
 import cloud2 from './assets/cloud-2.svg';
 import cloud3 from './assets/cloud-3.svg';
+import cloud4 from './assets/cloud-4.svg';
+import cloud5 from './assets/cloud-5.svg';
+import cloud6 from './assets/cloud-6.svg';
+import officialText from './assets/official_text_logo.svg';
 
-// Notes: Used styled components. Use react hooks in functional components for state.
+// Notes: Use styled components. Use react hooks in functional components for state.
 
 const Background = styled.div`
   background-image: linear-gradient(180deg, #ffccaa, #ffeeaa, #ffeeaa);
@@ -54,6 +58,40 @@ const Cloud3 = styled.img.attrs(props => ({
   position: absolute;
   top: 300px;
   left: -80px;
+`;
+
+const Cloud4 = styled.img.attrs(props => ({
+  src: cloud4,
+  width: 240
+}))`
+  position: absolute;
+  top: 20px;
+  right: 160px;
+`;
+
+const Cloud5 = styled.img.attrs(props => ({
+  src: cloud5,
+  width: 340
+}))`
+  position: absolute;
+  top: 120px;
+  right: 20px;
+`;
+
+const Cloud6 = styled.img.attrs(props => ({
+  src: cloud6,
+  width: 160
+}))`
+  position: absolute;
+  top: 260px;
+  right: 30px;
+`;
+
+const OfficialText = styled.img.attrs(props => ({
+  src: officialText,
+  width: '40%'
+}))`
+  position: flex;
 `;
 
 const Dock = styled.img.attrs(props => ({
@@ -108,6 +146,10 @@ const App: React.FC = () => {
       <Cloud1 />
       <Cloud2 />
       <Cloud3 />
+      <Cloud4 />
+      <Cloud5 />
+      <Cloud6 />
+      <OfficialText />
     </Background>
   );
 };

@@ -109,7 +109,6 @@ const Cloud6 = styled.img.attrs(props => ({
 
 const OfficialText = styled.img.attrs(props => ({
   src: officialText,
-  width: '40%',
   className: 'hidden-image'
 }))`
   display: flex;
@@ -189,8 +188,25 @@ const App: React.FC = () => {
         <Cloud4 />
         <Cloud5 />
         <Cloud6 />
-        <OfficialText />
-        <Button onClick={() => {}} title="Hi" />
+        <div
+          style={{
+            width: '40%',
+            height: '40%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            flexDirection: 'column'
+          }}
+        >
+          <OfficialText />
+          <Button
+            onClick={() => {}}
+            title="Pre-Register!"
+            width={100}
+            height={200}
+          />
+          <Button onClick={() => {}} title="Sponsor Us!" />
+        </div>
       </Container>
       <div
         style={{

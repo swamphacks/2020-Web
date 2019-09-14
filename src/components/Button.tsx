@@ -19,16 +19,15 @@ const CustomButton = styled.button`
   margin: 0.25rem;
   cursor: pointer;
 
-  transition: transform .25s ease;
+  transition: transform 0.25s ease;
   :hover {
-    transform: scale(1.09) rotate(${(Math.random() * 3) - 1}deg);
-  }  
-
+    transform: scale(1.09) rotate(${Math.random() * 3 - 1}deg);
+  }
 `;
 
-const Background = styled.img.attrs(({
-  src: buttonImage,
-}))`
+const Background = styled.img.attrs({
+  src: buttonImage
+})`
   height: 100%;
   width: 100%;
 `;
@@ -55,11 +54,8 @@ const Button: React.FC<Props> = props => {
       onClick={() => props.onClick()}
       style={{
         width: width,
-        // height: height,
-        // backgroundColor: 'red',
-        position: 'absolute',
-        top: 0,
-        left: 40
+        height: height,
+        backgroundColor: 'red'
       }}
     >
       <Background />

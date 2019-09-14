@@ -12,13 +12,15 @@ import cloud4 from './assets/cloud-4.svg';
 import cloud5 from './assets/cloud-5.svg';
 import cloud6 from './assets/cloud-6.svg';
 import officialText from './assets/official_text_logo.svg';
+import boat from './assets/gator-boat.svg';
+import './css/styles.css';
 
 import Button from './components/Button';
 
 // Notes: Use styled components. Use react hooks in functional components for state.
 
-const Background = styled.div`
-  background-image: linear-gradient(180deg, #ffccaa, #ffeeaa, #ffeeaa);
+const Container = styled.div`
+  background-color: black;
   height: ${window.innerHeight}px;
   display: flex;
   flex-grow: 1;
@@ -26,10 +28,20 @@ const Background = styled.div`
   justify-content: center;
 `;
 
+const SunGradient = styled.div`
+  background-image: linear-gradient(180deg, #ffccaa, #ffeeaa, #ffeeaa);
+  user-select: none;
+  height: 60vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+`;
+
 const Sun = styled.img.attrs(props => ({
   src: sun,
   width: '80%',
-  height: '80%'
+  height: '80%',
+  className: 'hidden-image'
 }))`
   position: absolute;
   top: 8vh;
@@ -37,7 +49,8 @@ const Sun = styled.img.attrs(props => ({
 
 const Cloud1 = styled.img.attrs(props => ({
   src: cloud1,
-  width: 300
+  width: 300,
+  className: 'hidden-image'
 }))`
   position: absolute;
   top: 60px;
@@ -46,7 +59,8 @@ const Cloud1 = styled.img.attrs(props => ({
 
 const Cloud2 = styled.img.attrs(props => ({
   src: cloud2,
-  width: 200
+  width: 200,
+  className: 'hidden-image'
 }))`
   position: absolute;
   top: 180px;
@@ -55,7 +69,8 @@ const Cloud2 = styled.img.attrs(props => ({
 
 const Cloud3 = styled.img.attrs(props => ({
   src: cloud3,
-  width: 240
+  width: 240,
+  className: 'hidden-image'
 }))`
   position: absolute;
   top: 300px;
@@ -64,7 +79,8 @@ const Cloud3 = styled.img.attrs(props => ({
 
 const Cloud4 = styled.img.attrs(props => ({
   src: cloud4,
-  width: 240
+  width: 240,
+  className: 'hidden-image'
 }))`
   position: absolute;
   top: 20px;
@@ -73,7 +89,8 @@ const Cloud4 = styled.img.attrs(props => ({
 
 const Cloud5 = styled.img.attrs(props => ({
   src: cloud5,
-  width: 340
+  width: 340,
+  className: 'hidden-image'
 }))`
   position: absolute;
   top: 120px;
@@ -82,7 +99,8 @@ const Cloud5 = styled.img.attrs(props => ({
 
 const Cloud6 = styled.img.attrs(props => ({
   src: cloud6,
-  width: 160
+  width: 160,
+  className: 'hidden-image'
 }))`
   position: absolute;
   top: 260px;
@@ -91,7 +109,8 @@ const Cloud6 = styled.img.attrs(props => ({
 
 const OfficialText = styled.img.attrs(props => ({
   src: officialText,
-  width: '40%'
+  width: '40%',
+  className: 'hidden-image'
 }))`
   display: flex;
   z-index: 1;
@@ -99,8 +118,8 @@ const OfficialText = styled.img.attrs(props => ({
 `;
 
 const Dock = styled.img.attrs(props => ({
-  src: dock
-  // width: '40%'
+  src: dock,
+  className: 'hidden-image'
 }))`
   position: absolute;
   bottom: 0;
@@ -109,7 +128,8 @@ const Dock = styled.img.attrs(props => ({
 
 const BackBushes = styled.img.attrs(props => ({
   src: backBushes,
-  width: '100%'
+  width: '100%',
+  className: 'hidden-image'
 }))`
   position: absolute;
   bottom: 35vh;
@@ -117,7 +137,8 @@ const BackBushes = styled.img.attrs(props => ({
 
 const MiddleBushes = styled.img.attrs(props => ({
   src: middleBushes,
-  width: '100%'
+  width: '100%',
+  className: 'hidden-image'
 }))`
   position: absolute;
   bottom: 25vh;
@@ -125,7 +146,8 @@ const MiddleBushes = styled.img.attrs(props => ({
 
 const FrontBushes = styled.img.attrs(props => ({
   src: frontBushes,
-  width: '100%'
+  width: '100%',
+  className: 'hidden-image'
 }))`
   position: absolute;
   bottom: 21vh;
@@ -139,15 +161,27 @@ const Water = styled.div`
   bottom: 0;
 `;
 
+const Boat = styled.img.attrs(props => ({
+  src: boat,
+  className: 'hidden-image'
+}))`
+  width: 20vw;
+  position: absolute;
+  bottom: 21vh;
+  left: 200px;
+`;
+
 const App: React.FC = () => {
   return (
     <>
-      <Background>
+      <Container>
+        <SunGradient />
         <Sun />
         <Water />
         <BackBushes />
         <MiddleBushes />
         <FrontBushes />
+        <Boat />
         <Dock />
         <Cloud1 />
         <Cloud2 />
@@ -157,7 +191,7 @@ const App: React.FC = () => {
         <Cloud6 />
         <OfficialText />
         <Button onClick={() => {}} title="Hi" />
-      </Background>
+      </Container>
       <div
         style={{
           height: 100,

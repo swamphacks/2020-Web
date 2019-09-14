@@ -19,7 +19,7 @@ import Button from './components/Button';
 
 const Background = styled.div`
   background-image: linear-gradient(180deg, #ffccaa, #ffeeaa, #ffeeaa);
-  height: 100vh;
+  height: ${window.innerHeight}px;
   display: flex;
   flex-grow: 1;
   align-items: center;
@@ -95,14 +95,16 @@ const OfficialText = styled.img.attrs(props => ({
 }))`
   display: flex;
   z-index: 1;
+  min-width: 400px;
 `;
 
 const Dock = styled.img.attrs(props => ({
-  src: dock,
-  width: '40%'
+  src: dock
+  // width: '40%'
 }))`
   position: absolute;
   bottom: 0;
+  width: 40%;
 `;
 
 const BackBushes = styled.img.attrs(props => ({
@@ -139,22 +141,31 @@ const Water = styled.div`
 
 const App: React.FC = () => {
   return (
-    <Background>
-      <Sun />
-      <Water />
-      <BackBushes />
-      <MiddleBushes />
-      <FrontBushes />
-      <Dock />
-      <Cloud1 />
-      <Cloud2 />
-      <Cloud3 />
-      <Cloud4 />
-      <Cloud5 />
-      <Cloud6 />
-      <OfficialText />
-      <Button onClick={() => {}} title="Hi" />
-    </Background>
+    <>
+      <Background>
+        <Sun />
+        <Water />
+        <BackBushes />
+        <MiddleBushes />
+        <FrontBushes />
+        <Dock />
+        <Cloud1 />
+        <Cloud2 />
+        <Cloud3 />
+        <Cloud4 />
+        <Cloud5 />
+        <Cloud6 />
+        <OfficialText />
+        <Button onClick={() => {}} title="Hi" />
+      </Background>
+      <div
+        style={{
+          height: 100,
+          width: '100%',
+          backgroundColor: 'red'
+        }}
+      />
+    </>
   );
 };
 

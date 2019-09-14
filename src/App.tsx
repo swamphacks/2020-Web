@@ -1,4 +1,4 @@
-import React, {useState, Suspense} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import sun from './assets/sun.svg';
 import backBushes from './assets/back-bushes.svg';
@@ -12,6 +12,8 @@ import cloud4 from './assets/cloud-4.svg';
 import cloud5 from './assets/cloud-5.svg';
 import cloud6 from './assets/cloud-6.svg';
 import officialText from './assets/official_text_logo.svg';
+
+import Button from './components/Button';
 
 // Notes: Use styled components. Use react hooks in functional components for state.
 
@@ -30,7 +32,7 @@ const Sun = styled.img.attrs(props => ({
   height: '80%'
 }))`
   position: absolute;
-  top: 20px;
+  top: 8vh;
 `;
 
 const Cloud1 = styled.img.attrs(props => ({
@@ -91,12 +93,13 @@ const OfficialText = styled.img.attrs(props => ({
   src: officialText,
   width: '40%'
 }))`
-  position: flex;
+  display: flex;
+  z-index: 1;
 `;
 
 const Dock = styled.img.attrs(props => ({
   src: dock,
-  width: '60%'
+  width: '40%'
 }))`
   position: absolute;
   bottom: 0;
@@ -150,6 +153,7 @@ const App: React.FC = () => {
       <Cloud5 />
       <Cloud6 />
       <OfficialText />
+      <Button onClick={() => {}} title="Hi" />
     </Background>
   );
 };

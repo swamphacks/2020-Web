@@ -1,10 +1,14 @@
 import React, {useState, ReactNode} from 'react';
 import styled from 'styled-components';
 
-const CustomButton = styled.button.attrs(props => ({}))`
+import buttonImage from '../assets/buttonImage.svg';
+
+const CustomButton = styled.button`
   border: 0;
-  border-radius: 0.25rem;
-  background: #1e88e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
   color: white;
   font-family: system-ui, sans-serif;
   font-size: 1rem;
@@ -14,11 +18,31 @@ const CustomButton = styled.button.attrs(props => ({}))`
   padding: 0.25rem 0.5rem;
   margin: 0.25rem;
   cursor: pointer;
+
+  transition: transform .25s ease;
+  :hover {
+    transform: scale(1.09) rotate(${(Math.random() * 3) - 1}deg);
+  }  
+
+`;
+
+const Background = styled.img.attrs(({
+  src: buttonImage,
+}))`
+  height: 100%;
+  width: 100%;
+`;
+
+const Text = styled.div`
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  margin-top: 4px;
 `;
 
 type Props = {
   onClick: Function;
-  title?: String;
+  title: string;
   width?: number;
   height?: number;
 };
@@ -31,13 +55,15 @@ const Button: React.FC<Props> = props => {
       onClick={() => props.onClick()}
       style={{
         width: width,
-        height: height,
+        // height: height,
+        // backgroundColor: 'red',
         position: 'absolute',
         top: 0,
         left: 40
       }}
     >
-      {props.title}
+      <Background />
+      <Text>{props.title}</Text>
     </CustomButton>
   );
 };

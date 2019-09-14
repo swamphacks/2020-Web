@@ -45,7 +45,29 @@ const Sun = styled.img.attrs(props => ({
 }))`
   position: absolute;
   top: 8vh;
+  animation: loading 360s linear infinite;
+  @keyframes loading {
+    0% { 
+      transform: rotate(0); 
+    }
+    100% { 
+      transform: rotate(360deg);
+    }
+  }
 `;
+
+const bounceCss = () => `
+  animation: bounce ${Math.random() * 8 + 3}s ease-in infinite alternate;
+  @keyframes bounce {
+    0% {
+      transform: translateY(${Math.random() > 0.5 ? -15 : 15}px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  } 
+`;
+
 
 const Cloud1 = styled.img.attrs(props => ({
   src: cloud1,
@@ -55,6 +77,7 @@ const Cloud1 = styled.img.attrs(props => ({
   position: absolute;
   top: 60px;
   left: 60px;
+  ${bounceCss()}
 `;
 
 const Cloud2 = styled.img.attrs(props => ({
@@ -65,6 +88,7 @@ const Cloud2 = styled.img.attrs(props => ({
   position: absolute;
   top: 180px;
   left: 80px;
+  ${bounceCss()}
 `;
 
 const Cloud3 = styled.img.attrs(props => ({
@@ -75,6 +99,7 @@ const Cloud3 = styled.img.attrs(props => ({
   position: absolute;
   top: 300px;
   left: -80px;
+  ${bounceCss()}
 `;
 
 const Cloud4 = styled.img.attrs(props => ({
@@ -85,6 +110,7 @@ const Cloud4 = styled.img.attrs(props => ({
   position: absolute;
   top: 20px;
   right: 160px;
+  ${bounceCss()}
 `;
 
 const Cloud5 = styled.img.attrs(props => ({
@@ -95,6 +121,7 @@ const Cloud5 = styled.img.attrs(props => ({
   position: absolute;
   top: 120px;
   right: 20px;
+  ${bounceCss()}
 `;
 
 const Cloud6 = styled.img.attrs(props => ({
@@ -105,6 +132,7 @@ const Cloud6 = styled.img.attrs(props => ({
   position: absolute;
   top: 260px;
   right: 30px;
+  ${bounceCss()}
 `;
 
 const OfficialText = styled.img.attrs(props => ({
@@ -168,7 +196,17 @@ const Boat = styled.img.attrs(props => ({
   width: 20vw;
   position: absolute;
   bottom: 21vh;
-  left: 200px;
+  right: 100px;
+  animation: translate 600s linear infinite;
+  @keyframes translate
+  {
+    from {
+      right: 0;
+    }
+    to {
+      right: 100%;
+    }
+  }
 `;
 
 const App: React.FC = () => {

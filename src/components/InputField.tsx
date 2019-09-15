@@ -6,7 +6,6 @@ const ErrorContainer = styled.div`
   min-width: 200px;
   width: 100%;
   padding: 12px 20px;
-  margin: 0 0 20px 0;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -41,7 +40,7 @@ const Input = styled.input.attrs({
   width: 100%;
   height: 50px;
   font-size: 24px;
-  margin: 20px 0 5px 0;
+  margin: 5px 0;
   padding: 12px 20px;
   :focus {
     outline: none;

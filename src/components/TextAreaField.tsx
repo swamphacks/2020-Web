@@ -18,7 +18,7 @@ const Input = styled.textarea.attrs(props => ({
   width: 100%;
   height: 200px;
   font-size: 24px;
-  margin: 20px 0;
+  margin: 5px 0;
   padding: 20px 20px;
   resize: none;
   :focus {
@@ -28,16 +28,26 @@ const Input = styled.textarea.attrs(props => ({
 `;
 
 const TitleContainer = styled.div`
-  width: 30vw + 40px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
   font-family: Avenir, Roboto, Sans-serif;
   font-weight: regular;
   color: white;
   font-size: 24px;
+  margin: 20px -20px;
+`;
+
+const ErrorContainer = styled.div`
+  background-color: red;
+  min-width: 200px;
+  width: 100%;
+  padding: 12px 20px;
   margin: 0 -20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-family: Avenir, Roboto, Sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
 `;
 
 interface Props
@@ -46,6 +56,7 @@ interface Props
     HTMLTextAreaElement
   > {
   title?: string;
+  errorText?: string;
 }
 
 const TextAreaField: React.FC<Props> = props => {
@@ -62,8 +73,13 @@ const TextAreaField: React.FC<Props> = props => {
           flexDirection: 'column'
         }}
       >
-        <Input placeholder={placeholder}></Input>
+        <Input
+          placeholder={placeholder}
+          onChange={props.onChange}
+          value={props.value}
+        ></Input>
       </div>
+      {props.errorText && <ErrorContainer>{props.errorText}</ErrorContainer>}
     </div>
   );
 };

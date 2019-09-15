@@ -52,7 +52,7 @@ const PreRegister: React.FC = () => {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [field1, setField1] = useState<string>('');
-  const [errors, setErrors] = useState<Errors>();
+  const [errors, setErrors] = useState<Errors>({name: '', email: ''});
   const formData: FormData = {
     name: name,
     email: email,
@@ -79,24 +79,30 @@ const PreRegister: React.FC = () => {
           placeholder="Name"
           type="text"
           name="name"
-          errorText="This field is required."
+          errorText={errors['name']}
           value={name}
-          onChange={(event: any) => {
+          onChange={event => {
             setName(event.target.value);
           }}
         />
+        <br />
         <InputField
           required
           placeholder="Email"
           type="email"
           name="email"
-          errorText="This field is required."
-          onChange={(event: any) => setEmail(event.target.value)}
+          errorText={errors['email']}
+          onChange={event => setEmail(event.target.value)}
         ></InputField>
+        <br />
         <TextAreaField
           title="What workshops would you like to see at SwampHacks VI?"
           placeholder="React, MongoDB, machine learning, etc..."
+          name="suggestions"
+          value={field1}
+          onChange={event => setField1(event.target.value)}
         />
+        <br />
         <button type="submit" onClick={() => submitForm(formData)}>
           Submit
         </button>

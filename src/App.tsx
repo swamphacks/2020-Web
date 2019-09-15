@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import sun from './assets/sun.svg';
+import sun from './assets/sunFix.svg';
 import backBushes from './assets/back-bushes.svg';
 import middleBushes from './assets/middle-bushes.svg';
 import frontBushes from './assets/front-bushes.svg';
@@ -20,7 +20,6 @@ import Button from './components/Button';
 // Notes: Use styled components. Use react hooks in functional components for state.
 
 const Container = styled.div`
-  background-color: black;
   height: ${window.innerHeight}px;
   display: flex;
   flex-grow: 1;
@@ -47,17 +46,17 @@ const Sun = styled.img.attrs(props => ({
   top: 8vh;
   animation: loading 360s linear infinite;
   @keyframes loading {
-    0% { 
-      transform: rotate(0); 
+    0% {
+      transform: rotate(0);
     }
-    100% { 
+    100% {
       transform: rotate(360deg);
     }
   }
 `;
 
 const bounceCss = () => `
-  animation: bounce ${Math.random() * 8 + 3}s ease-in infinite alternate;
+  animation: bounce ${Math.random() * 8 + 3}s linear infinite alternate;
   @keyframes bounce {
     0% {
       transform: translateY(${Math.random() > 0.5 ? -15 : 15}px);
@@ -67,7 +66,6 @@ const bounceCss = () => `
     }
   } 
 `;
-
 
 const Cloud1 = styled.img.attrs(props => ({
   src: cloud1,
@@ -141,7 +139,7 @@ const OfficialText = styled.img.attrs(props => ({
 }))`
   display: flex;
   z-index: 1;
-  min-width: 400px;
+  min-width: 600px;
 `;
 
 const Dock = styled.img.attrs(props => ({
@@ -194,13 +192,12 @@ const Boat = styled.img.attrs(props => ({
 }))`
   width: 20vw;
   position: absolute;
-  bottom: 21vh;
-  right: 100px;
-  animation: translate 600s linear infinite;
-  @keyframes translate
-  {
+  bottom: 25vh;
+  right: 0;
+  animation: translate 200s linear infinite;
+  @keyframes translate {
     from {
-      right: 0;
+      right: -15vw;
     }
     to {
       right: 100%;
@@ -217,8 +214,8 @@ const App: React.FC = () => {
         <Water />
         <BackBushes />
         <MiddleBushes />
-        <FrontBushes />
         <Boat />
+        <FrontBushes />
         <Dock />
         <Cloud1 />
         <Cloud2 />
@@ -228,7 +225,7 @@ const App: React.FC = () => {
         <Cloud6 />
         <div
           style={{
-            width: '40%',
+            width: '50%',
             height: '40%',
             display: 'flex',
             alignItems: 'center',

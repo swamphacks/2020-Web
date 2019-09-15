@@ -8,8 +8,14 @@ const CustomButton = styled.button`
   width: 200px;
   height: 50px;
   border: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   background: transparent;
   color: white;
@@ -22,8 +28,18 @@ const CustomButton = styled.button`
   margin: 0.25rem;
   cursor: pointer;
 
+  -webkit-transition: -webkit-transform 0.25s ease;
+
+  transition: -webkit-transform 0.25s ease;
+
+  -o-transition: transform 0.25s ease;
+
   transition: transform 0.25s ease;
+
+  transition: transform 0.25s ease, -webkit-transform 0.25s ease;
   :hover {
+    -webkit-transform: scale(1.09) rotate(${Math.random() * 3 - 1}deg);
+    -ms-transform: scale(1.09) rotate(${Math.random() * 3 - 1}deg);
     transform: scale(1.09) rotate(${Math.random() * 3 - 1}deg);
   }
 `;

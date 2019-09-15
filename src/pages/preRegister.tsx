@@ -10,10 +10,11 @@ const Background = styled.div`
     #5599ff 15%,
     #00ffff 85%
   );
-  height: ${window.innerHeight}px;
   width: 100vw;
+  min-height: 100vh;
   display: flex;
-  flex-grow: 1;
+  flex: 1;
+   flex-grow: 1;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
@@ -36,17 +37,6 @@ const Form = styled.form`
   flex-direction: column;
 `;
 
-function validateForm(data: FormData) {
-  return true;
-}
-
-function submitForm(data: FormData) {
-  // Validate the form data
-  if (validateForm(data)) {
-    console.log(data);
-  }
-}
-
 type FormData = {
   name?: string;
   email?: string;
@@ -59,46 +49,59 @@ type Errors = {
 };
 
 const PreRegister: React.FC = () => {
-  const [name, setName] = useState<string>();
-  const [email, setEmail] = useState<string>();
-  const [field1, setField1] = useState<string>();
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [field1, setField1] = useState<string>('');
   const [errors, setErrors] = useState<Errors>();
   const formData: FormData = {
     name: name,
     email: email,
     suggestions: field1
   };
+
+  function validateForm(data: FormData) {
+    return true;
+  }
+
+  function submitForm(data: FormData) {
+    // Validate the form data
+    if (validateForm(data)) {
+      console.log(data);
+    }
+  }
+
   return (
-    <div>
-      <Background>
-        <Title>Pre-Register</Title>
-        <Form>
-          <InputField
-            required
-            placeholder="Name"
-            type="text"
-            name="name"
-            errorText="This field is required."
-            onChange={(event: any) => setName(event.target.value)}
-          ></InputField>
-          <InputField
-            required
-            placeholder="Email"
-            type="email"
-            name="email"
-            errorText="This field is required."
-            onChange={(event: any) => setEmail(event.target.value)}
-          ></InputField>
-          <TextAreaField
-            title="What workshops would you like to see at SwampHacks VI?"
-            placeholder="React, MongoDB, machine learning, etc..."
-          />
-          <button type="submit" onClick={() => submitForm(formData)}>
-            Submit
-          </button>
-        </Form>
-      </Background>
-    </div>
+    <Background>
+      <Title>Pre-Register</Title>
+      <Form>
+        <InputField
+          required
+          placeholder="Name"
+          type="text"
+          name="name"
+          errorText="This field is required."
+          value={name}
+          onChange={(event: any) => {
+            setName(event.target.value);
+          }}
+        />
+        <InputField
+          required
+          placeholder="Email"
+          type="email"
+          name="email"
+          errorText="This field is required."
+          onChange={(event: any) => setEmail(event.target.value)}
+        ></InputField>
+        <TextAreaField
+          title="What workshops would you like to see at SwampHacks VI?"
+          placeholder="React, MongoDB, machine learning, etc..."
+        />
+        <button type="submit" onClick={() => submitForm(formData)}>
+          Submit
+        </button>
+      </Form>
+    </Background>
   );
 };
 

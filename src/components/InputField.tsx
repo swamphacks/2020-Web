@@ -16,43 +16,40 @@ const ErrorContainer = styled.div`
   font-size: 16px;
 `;
 
-type Props = {
-  type?: string;
-  required?: boolean;
-  placeholder?: string;
-  name?: string;
+interface Props
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
   errorText?: string;
-  onChange: any;
-};
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
+}
+
+const Input = styled.input.attrs({
+  maxLength: 120
+})`
+  font-family: Avenir, Roboto, Sans-serif;
+  font-weight: regular;
+  color: black;
+  border: none;
+  background-image: none;
+  background-color: white;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-radius: 10px;
+  min-width: 200px;
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  margin: 20px 0 5px 0;
+  padding: 12px 20px;
+  :focus {
+    outline: none;
+    box-shadow: 0 0 3pt 2pt #75f2a9;
+  }
+`;
 
 const InputField: React.FC<Props> = props => {
-  const Input = styled.input.attrs(props => ({
-    placeholder: props.placeholder,
-    required: props.required,
-    type: props.type,
-    name: props.name,
-    maxLength: 120
-  }))`
-    font-family: Avenir, Roboto, Sans-serif;
-    font-weight: regular;
-    color: black;
-    border: none;
-    background-image: none;
-    background-color: white;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    border-radius: 10px;
-    min-width: 200px;
-    width: 100%;
-    height: 50px;
-    font-size: 24px;
-    margin: 20px 0 5px 0;
-    padding: 12px 20px;
-    :focus {
-      outline: none;
-      box-shadow: 0 0 3pt 2pt #75f2a9;
-    }
-  `;
   return (
     <>
       <Input
@@ -61,7 +58,8 @@ const InputField: React.FC<Props> = props => {
         required={props.required}
         name={props.name}
         onChange={props.onChange}
-      ></Input>
+        value={props.value}
+      />
       {props.errorText && <ErrorContainer>{props.errorText}</ErrorContainer>}
     </>
   );

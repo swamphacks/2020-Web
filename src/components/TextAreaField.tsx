@@ -27,19 +27,17 @@ const Input = styled.textarea.attrs(props => ({
   }
 `;
 
-const Title = styled.p`
-  font-family: Avenir, Roboto, Sans-serif;
-  font-weight: regular;
-  color: white;
-  font-size: 24px;
-`;
-
 const TitleContainer = styled.div`
   width: 30vw + 40px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
+  font-family: Avenir, Roboto, Sans-serif;
+  font-weight: regular;
+  color: white;
+  font-size: 24px;
+  margin: 0 -20px;
 `;
 
 type Props = {
@@ -53,9 +51,7 @@ type Props = {
 const TextAreaField: React.FC<Props> = props => {
   return (
     <div>
-      <TitleContainer>
-        <Title>{props.title}</Title>
-      </TitleContainer>
+      <TitleContainer>{props.title}</TitleContainer>
       <div
         style={{
           width: '100%',

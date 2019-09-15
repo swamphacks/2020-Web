@@ -240,8 +240,8 @@ const App: React.FC = () => {
           <Button
             onClick={() => {}}
             title="Pre-Register!"
-            width={100}
-            height={200}
+            // width={100}
+            // height={200}
           />
           <Button onClick={() => {}} title="Sponsor Us!" />
         </div>

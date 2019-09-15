@@ -4,11 +4,14 @@ import styled from 'styled-components';
 import buttonImage from '../assets/buttonImage.svg';
 
 const CustomButton = styled.button`
+  width: 200px;
+  height: 50px;
   border: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
+  background-color: red;
   color: white;
   font-family: system-ui, sans-serif;
   font-size: 1rem;
@@ -18,18 +21,20 @@ const CustomButton = styled.button`
   padding: 0.25rem 0.5rem;
   margin: 0.25rem;
   cursor: pointer;
+  background-image: url('../assets/buttonImage.svg');
 
-  transition: transform 0.25s ease;
+  transition: transform .25s ease;
   :hover {
-    transform: scale(1.09) rotate(${Math.random() * 3 - 1}deg);
-  }
+    transform: scale(1.09) rotate(${(Math.random() * 3) - 1}deg);
+  }  
+
 `;
 
-const Background = styled.img.attrs({
-  src: buttonImage
-})`
-  height: 100%;
-  width: 100%;
+const Background = styled.img.attrs(({
+  src: buttonImage,
+}))`
+  width: 200px;
+  height: 50px;
 `;
 
 const Text = styled.div`
@@ -47,15 +52,18 @@ type Props = {
 };
 
 const Button: React.FC<Props> = props => {
-  const width = props.width ? props.width : 200;
-  const height = props.height ? props.height : 140;
+  // const width = props.width ? props.width : 200;
+  // const height = props.height ? props.height : 140;
   return (
     <CustomButton
       onClick={() => props.onClick()}
       style={{
-        width: width,
-        height: height,
-        backgroundColor: 'red'
+        // width: width,
+        // height: height,
+        // backgroundColor: 'red',
+        // position: 'absolute',
+        // top: 0,
+        // left: 40
       }}
     >
       <Background />

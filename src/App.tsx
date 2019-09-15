@@ -20,7 +20,6 @@ import Button from './components/Button';
 // Notes: Use styled components. Use react hooks in functional components for state.
 
 const Container = styled.div`
-  background-color: black;
   height: ${window.innerHeight}px;
   display: flex;
   flex-grow: 1;

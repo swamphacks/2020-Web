@@ -40,15 +40,16 @@ const TitleContainer = styled.div`
   margin: 0 -20px;
 `;
 
-type Props = {
-  type?: string;
-  required?: boolean;
-  placeholder?: string;
-  name?: string;
+interface Props
+  extends React.DetailedHTMLProps<
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    HTMLTextAreaElement
+  > {
   title?: string;
-};
+}
 
 const TextAreaField: React.FC<Props> = props => {
+  const {title, placeholder} = props;
   return (
     <div>
       <TitleContainer>{props.title}</TitleContainer>
@@ -61,7 +62,7 @@ const TextAreaField: React.FC<Props> = props => {
           flexDirection: 'column'
         }}
       >
-        <Input placeholder={props.placeholder}></Input>
+        <Input placeholder={placeholder}></Input>
       </div>
     </div>
   );

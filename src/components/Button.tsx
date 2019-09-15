@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import buttonImage from '../assets/buttonImage.svg';
 
 const CustomButton = styled.button`
+  z-index: 99;
   width: 200px;
   height: 50px;
   border: 0;
@@ -11,7 +12,6 @@ const CustomButton = styled.button`
   align-items: center;
   justify-content: center;
   background: transparent;
-  background-color: red;
   color: white;
   font-family: system-ui, sans-serif;
   font-size: 1rem;
@@ -21,7 +21,7 @@ const CustomButton = styled.button`
   padding: 0.25rem 0.5rem;
   margin: 0.25rem;
   cursor: pointer;
-  background-image: url('../assets/buttonImage.svg');
+
 
   transition: transform .25s ease;
   :hover {
@@ -29,6 +29,14 @@ const CustomButton = styled.button`
   }  
 
 `;
+
+// const Image = styled.image.attrs(({
+//   src: buttonImage,
+// }))`
+//   position: absolute;
+//   height: 100%;
+//   width: 100%;
+// `;
 
 const Background = styled.img.attrs(({
   src: buttonImage,

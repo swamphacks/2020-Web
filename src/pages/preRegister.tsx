@@ -1,5 +1,6 @@
 import React from 'react';
 import {Formik, Form, Field} from 'formik';
+import {withRouter, RouteComponentProps} from 'react-router-dom';
 import * as yup from 'yup';
 import styled from 'styled-components';
 import * as firebase from 'firebase';
@@ -8,13 +9,15 @@ import '../css/styles.css';
 import InputField from '../components/InputField';
 import TextAreaField from '../components/TextAreaField';
 import preRegisterSign from '../assets/pre-register-sign.svg';
+import Button from '../components/Button';
+import {tsPropertySignature} from '@babel/types';
 
 const PreRegisterSign = styled.img.attrs(props => ({
   src: preRegisterSign,
   className: 'hidden-image'
 }))`
   width: 35vw;
-  min-width: 600px;
+  min-width: 500px;
   margin-top: -200px;
   padding-bottom: 80px;
   font-family: Ink Free;
@@ -35,16 +38,9 @@ const Background = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.h1`
-  font-family: Avenir, Roboto, Sans-serif;
-  font-weight: regular;
-  color: white;
-  padding: 8vh 0 4vh 0;
-  font-size: 3rem;
-`;
-
 const FormContainer = styled(Form)`
   width: 30vw;
+  min-width: 400px;
   display: flex;
   flex-grow: 1;
   align-items: center;
@@ -67,7 +63,9 @@ const schema = yup.object().shape({
   suggestions: yup.string().notRequired()
 });
 
-const PreRegister: React.FC = () => {
+interface Props extends RouteComponentProps<any> {}
+
+const PreRegister: React.FC<Props> = props => {
   return (
     <Background>
       <PreRegisterSign />
@@ -114,9 +112,25 @@ const PreRegister: React.FC = () => {
               component={TextAreaField}
             />
             <br />
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
+            <div
+              style={{display: 'flex', width: '100%', justifyContent: 'center'}}
+            >
+              <Button
+                variant="red"
+                style={{width: '40%'}}
+                onClick={() => props.history.push('/')}
+              >
+                Cancel
+              </Button>
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                variant="green"
+                style={{width: '40%'}}
+              >
+                Submit
+              </Button>
+            </div>
           </FormContainer>
         )}
       </Formik>
@@ -124,4 +138,4 @@ const PreRegister: React.FC = () => {
   );
 };
 
-export default PreRegister;
+export default withRouter(PreRegister);

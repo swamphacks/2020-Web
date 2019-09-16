@@ -245,16 +245,16 @@ const ComingSoon: React.FC<Props> = props => {
           onClick={() => {
             props.history.push('/pre-register');
           }}
-          title="Pre-Register!"
-          width={400}
-          height={120}
-        />
+        >
+          Pre-Register!
+        </Button>
         <Button
           onClick={() => {
             window.location.href = 'mailto:sponsors@swamphacks.com';
           }}
-          title="Sponsor Us!"
-        />
+        >
+          Sponsor Us!
+        </Button>
       </div>
     </Container>
   );

@@ -2,6 +2,8 @@ import React, {useState, ReactNode} from 'react';
 import styled from 'styled-components';
 
 import buttonImage from '../assets/buttonImage.svg';
+import buttonImageRed from '../assets/dark-red-wood-button.svg';
+import buttonImageGreen from '../assets/dark-green-wood-button.svg';
 
 const CustomButton = styled.button<Props>`
   z-index: 1;
@@ -23,10 +25,8 @@ const CustomButton = styled.button<Props>`
   cursor: pointer;
 
   min-width: 300px;
-  min-height: 80px;
 
   max-width: 500px;
-  max-height: 160px;
 
   -webkit-transition: -webkit-transform 0.25s ease;
 
@@ -44,12 +44,6 @@ const CustomButton = styled.button<Props>`
   }
 `;
 
-const Background = styled.img.attrs({
-  src: buttonImage
-})`
-  width: 100%;
-`;
-
 const Text = styled.div`
   position: absolute;
   font-family: Ink Free;
@@ -63,16 +57,27 @@ interface Props
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  title?: string;
-  width?: number;
-  height?: number;
+  style?: any;
+  variant?: 'red' | 'green' | 'default';
 }
 
 const Button: React.FC<Props> = props => {
+  const {variant} = props || 'default';
+  let src = buttonImage;
+  if (variant === 'red') {
+    src = buttonImageRed;
+  } else if (variant === 'green') {
+    src = buttonImageGreen;
+  }
   return (
-    <CustomButton onClick={props.onClick}>
-      <Background />
-      <Text>{props.title}</Text>
+    <CustomButton
+      onClick={props.onClick}
+      type={props.type}
+      disabled={props.disabled}
+      style={props.style}
+    >
+      <img src={src} width={'100%'} />
+      <Text>{props.children}</Text>
     </CustomButton>
   );
 };

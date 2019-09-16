@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Ink Free';
+  src: url('./fonts/InkFree.woff2') format('woff2'),
+    url('./fonts/InkFree.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

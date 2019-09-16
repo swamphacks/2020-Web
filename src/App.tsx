@@ -13,7 +13,7 @@ const App: React.FC = () => {
   console.log('Y ' + process.env.TEST);
   return (
     <Router>
-      <Route path="/" exact component={PreRegister} />
+      <Route path="/" exact component={ComingSoon} />
       <Route path="/pre-register" exact component={PreRegister} />
     </Router>
   );

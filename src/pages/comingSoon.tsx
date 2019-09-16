@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {withRouter, RouteComponentProps} from 'react-router-dom';
 
@@ -6,7 +6,7 @@ import sun from '../assets/sunFix.svg';
 import backBushes from '../assets/back-bushes.svg';
 import middleBushes from '../assets/middle-bushes.svg';
 import frontBushes from '../assets/front-bushes.svg';
-import dock from '../assets/dock.png';
+import dock from '../assets/dock.svg';
 import cloud1 from '../assets/cloud-1.svg';
 import cloud2 from '../assets/cloud-2.svg';
 import cloud3 from '../assets/cloud-3.svg';
@@ -22,11 +22,12 @@ import Button from '../components/Button';
 // Notes: Use styled components. Use react hooks in functional components for state.
 
 const Container = styled.div`
-  height: ${window.innerHeight}px;
+  min-height: 100vh;
   display: flex;
   flex-grow: 1;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 `;
 
 const SunGradient = styled.div`
@@ -40,10 +41,11 @@ const SunGradient = styled.div`
 
 const Sun = styled.img.attrs(props => ({
   src: sun,
-  width: '80%',
-  height: '80%',
   className: 'hidden-image'
 }))`
+  width: 80vw;
+  height: 80vh;
+  min-width: 720px;
   position: absolute;
   top: 8vh;
   animation: loading 360s linear infinite;
@@ -141,41 +143,42 @@ const OfficialText = styled.img.attrs(props => ({
 }))`
   display: flex;
   z-index: 1;
-  min-width: 600px;
+  min-width: 400px;
 `;
 
 const Dock = styled.img.attrs(props => ({
   src: dock,
   className: 'hidden-image'
 }))`
+  min-width: 600px;
   position: absolute;
   bottom: 0;
-  width: 40%;
+  width: 35vw;
 `;
 
 const BackBushes = styled.img.attrs(props => ({
   src: backBushes,
-  width: '100%',
   className: 'hidden-image'
 }))`
+  min-width: ${window.innerWidth}px;
   position: absolute;
   bottom: 35vh;
 `;
 
 const MiddleBushes = styled.img.attrs(props => ({
   src: middleBushes,
-  width: '100%',
   className: 'hidden-image'
 }))`
+  min-width: ${window.innerWidth}px;
   position: absolute;
   bottom: 25vh;
 `;
 
 const FrontBushes = styled.img.attrs(props => ({
   src: frontBushes,
-  width: '100%',
   className: 'hidden-image'
 }))`
+  min-width: ${window.innerWidth}px;
   position: absolute;
   bottom: 21vh;
 `;
@@ -193,16 +196,17 @@ const Boat = styled.img.attrs(props => ({
   className: 'hidden-image'
 }))`
   width: 20vw;
+  min-width: 200px;
   position: absolute;
   bottom: 25vh;
   right: 0;
-  animation: translate 200s linear infinite;
+  animation: translate 120s linear infinite;
   @keyframes translate {
     from {
       right: -15vw;
     }
     to {
-      right: 100%;
+      right: 100vw;
     }
   }
 `;
@@ -228,7 +232,7 @@ const ComingSoon: React.FC<Props> = props => {
       <Cloud6 />
       <div
         style={{
-          width: '50%',
+          width: '40%',
           height: '40%',
           display: 'flex',
           alignItems: 'center',
@@ -242,6 +246,8 @@ const ComingSoon: React.FC<Props> = props => {
             props.history.push('/pre-register');
           }}
           title="Pre-Register!"
+          width={400}
+          height={120}
         />
         <Button
           onClick={() => {

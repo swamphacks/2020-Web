@@ -3,10 +3,8 @@ import styled from 'styled-components';
 
 import buttonImage from '../assets/buttonImage.svg';
 
-const CustomButton = styled.button`
-  z-index: 99;
-  width: 200px;
-  height: 50px;
+const CustomButton = styled.button<Props>`
+  z-index: 1;
   border: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -18,15 +16,17 @@ const CustomButton = styled.button`
   -ms-flex-pack: center;
   justify-content: center;
   background: transparent;
-  color: white;
-  font-family: system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.2;
   white-space: nowrap;
   text-decoration: none;
   padding: 0.25rem 0.5rem;
   margin: 0.25rem;
   cursor: pointer;
+
+  min-width: 300px;
+  min-height: 80px;
+
+  max-width: 500px;
+  max-height: 160px;
 
   -webkit-transition: -webkit-transform 0.25s ease;
 
@@ -44,52 +44,33 @@ const CustomButton = styled.button`
   }
 `;
 
-// const Image = styled.image.attrs(({
-//   src: buttonImage,
-// }))`
-//   position: absolute;
-//   height: 100%;
-//   width: 100%;
-// `;
-
 const Background = styled.img.attrs({
   src: buttonImage
 })`
-  width: 200px;
-  height: 50px;
+  width: 100%;
 `;
 
 const Text = styled.div`
   position: absolute;
-  color: white;
-  font-size: 14px;
-  margin-top: 4px;
+  font-family: Ink Free;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: black;
 `;
 
-type Props = {
-  onClick: Function;
-  title: string;
+interface Props
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  title?: string;
   width?: number;
   height?: number;
-};
+}
 
 const Button: React.FC<Props> = props => {
-  // const width = props.width ? props.width : 200;
-  // const height = props.height ? props.height : 140;
   return (
-    <CustomButton
-      onClick={() => props.onClick()}
-      style={
-        {
-          // width: width,
-          // height: height,
-          // backgroundColor: 'red',
-          // position: 'absolute',
-          // top: 0,
-          // left: 40
-        }
-      }
-    >
+    <CustomButton onClick={props.onClick}>
       <Background />
       <Text>{props.title}</Text>
     </CustomButton>

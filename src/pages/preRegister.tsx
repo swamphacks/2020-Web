@@ -2,11 +2,23 @@ import React from 'react';
 import {Formik, Form, Field} from 'formik';
 import * as yup from 'yup';
 import styled from 'styled-components';
-
 import * as firebase from 'firebase';
+import '../css/styles.css';
 
 import InputField from '../components/InputField';
 import TextAreaField from '../components/TextAreaField';
+import preRegisterSign from '../assets/pre-register-sign.svg';
+
+const PreRegisterSign = styled.img.attrs(props => ({
+  src: preRegisterSign,
+  className: 'hidden-image'
+}))`
+  width: 35vw;
+  min-width: 600px;
+  margin-top: -200px;
+  padding-bottom: 80px;
+  font-family: Ink Free;
+`;
 
 const Background = styled.div`
   background-image: radial-gradient(
@@ -14,11 +26,10 @@ const Background = styled.div`
     #5599ff 15%,
     #00ffff 85%
   );
-  width: 100vw;
+  overflow: hidden;
   min-height: 100vh;
   display: flex;
-  flex: 1;
-   flex-grow: 1;
+  flex-grow: 1;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
@@ -59,7 +70,7 @@ const schema = yup.object().shape({
 const PreRegister: React.FC = () => {
   return (
     <Background>
-      <Title>Pre-Register</Title>
+      <PreRegisterSign />
       <Formik
         initialValues={{}}
         validationSchema={schema}

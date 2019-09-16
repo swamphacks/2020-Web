@@ -1,32 +1,12 @@
-import React, {useState, ChangeEventHandler, FormEventHandler} from 'react';
+import React from 'react';
+import {FieldProps} from 'formik';
 import styled from 'styled-components';
 
-const ErrorContainer = styled.div`
-  background-color: red;
-  min-width: 200px;
-  width: 100%;
-  padding: 12px 20px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  font-family: Avenir, Roboto, Sans-serif;
-  font-weight: bold;
-  color: white;
-  font-size: 16px;
-`;
+import InputErrorMessage from './InputErrorMessage';
 
-interface Props
-  extends React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
-  errorText?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
-}
+interface Props extends FieldProps {}
 
-const Input = styled.input.attrs({
-  maxLength: 120
-})`
+const Input = styled.input`
   font-family: Avenir, Roboto, Sans-serif;
   font-weight: regular;
   color: black;
@@ -48,18 +28,17 @@ const Input = styled.input.attrs({
   }
 `;
 
-const InputField: React.FC<Props> = props => {
+const InputField: React.FC<Props> = ({
+  field, // { name, value, onChange, onBlur }
+  form: {touched, errors}, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+  ...props
+}) => {
   return (
     <>
-      <Input
-        placeholder={props.placeholder}
-        type={props.type}
-        required={props.required}
-        name={props.name}
-        onChange={props.onChange}
-        value={props.value}
-      />
-      {props.errorText && <ErrorContainer>{props.errorText}</ErrorContainer>}
+      <Input type="text" {...field} {...props} />
+      {touched[field.name] && errors[field.name] && (
+        <InputErrorMessage>{errors[field.name]}</InputErrorMessage>
+      )}
     </>
   );
 };

@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import ComingSoon from './pages/comingSoon';
 import PreRegister from './pages/preRegister';
-import styled from 'styled-components';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <Route path="/" exact component={ComingSoon} />
+      <Route path="/" exact component={PreRegister} />
       <Route path="/pre-register" exact component={PreRegister} />
     </Router>
   );

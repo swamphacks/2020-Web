@@ -211,55 +211,46 @@ interface Props extends RouteComponentProps<any> {}
 
 const ComingSoon: React.FC<Props> = props => {
   return (
-    <>
-      <Container>
-        <SunGradient />
-        <Sun />
-        <Water />
-        <BackBushes />
-        <MiddleBushes />
-        <Boat />
-        <FrontBushes />
-        <Dock />
-        <Cloud1 />
-        <Cloud2 />
-        <Cloud3 />
-        <Cloud4 />
-        <Cloud5 />
-        <Cloud6 />
-        <div
-          style={{
-            width: '50%',
-            height: '40%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            flexDirection: 'column'
-          }}
-        >
-          <OfficialText />
-          <Button
-            onClick={() => {
-              props.history.push('/pre-register');
-            }}
-            title="Pre-Register!"
-          />
-          <Button
-            onClick={() => {
-              window.location.href = 'mailto:sponsors@swamphacks.com';
-            }}
-            title="Sponsor Us!"
-          />
-        </div>
-      </Container>
+    <Container>
+      <SunGradient />
+      <Sun />
+      <Water />
+      <BackBushes />
+      <MiddleBushes />
+      <Boat />
+      <FrontBushes />
+      <Dock />
+      <Cloud1 />
+      <Cloud2 />
+      <Cloud3 />
+      <Cloud4 />
+      <Cloud5 />
+      <Cloud6 />
       <div
         style={{
-          height: 100,
-          width: '100%',
-          backgroundColor: 'red'
+          width: '50%',
+          height: '40%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          flexDirection: 'column'
         }}
-      />
-    </>
+      >
+        <OfficialText />
+        <Button
+          onClick={() => {
+            props.history.push('/pre-register');
+          }}
+          title="Pre-Register!"
+        />
+        <Button
+          onClick={() => {
+            window.location.href = 'mailto:sponsors@swamphacks.com';
+          }}
+          title="Sponsor Us!"
+        />
+      </div>
+    </Container>
   );
 };
 

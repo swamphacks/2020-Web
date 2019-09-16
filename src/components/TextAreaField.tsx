@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {FieldProps} from 'formik';
 import styled from 'styled-components';
 
+import InputErrorMessage from './InputErrorMessage';
+
 const Input = styled.textarea.attrs(props => ({
-  wrap: 'soft',
-  maxLength: 240
+  wrap: 'soft'
 }))`
   font-family: Avenir, Roboto, Sans-serif;
   font-weight: regular;
@@ -35,35 +37,19 @@ const TitleContainer = styled.div`
   margin: 20px -20px;
 `;
 
-const ErrorContainer = styled.div`
-  background-color: red;
-  min-width: 200px;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 0 -20px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  font-family: Avenir, Roboto, Sans-serif;
-  font-weight: bold;
-  color: white;
-  font-size: 16px;
-`;
-
-interface Props
-  extends React.DetailedHTMLProps<
-    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    HTMLTextAreaElement
-  > {
+interface Props extends FieldProps {
   title?: string;
-  errorText?: string;
 }
 
-const TextAreaField: React.FC<Props> = props => {
-  const {title, placeholder} = props;
+const TextAreaField: React.FC<Props> = ({
+  field, // { name, value, onChange, onBlur }
+  form: {touched, errors}, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+  title,
+  ...props
+}) => {
   return (
-    <div>
-      <TitleContainer>{props.title}</TitleContainer>
+    <>
+      <TitleContainer>{title}</TitleContainer>
       <div
         style={{
           width: '100%',
@@ -73,14 +59,14 @@ const TextAreaField: React.FC<Props> = props => {
           flexDirection: 'column'
         }}
       >
-        <Input
-          placeholder={placeholder}
-          onChange={props.onChange}
-          value={props.value}
-        ></Input>
+        <Input {...field} {...props} />
       </div>
-      {props.errorText && <ErrorContainer>{props.errorText}</ErrorContainer>}
-    </div>
+      {touched[field.name] && errors[field.name] && (
+        <InputErrorMessage style={{marginLeft: -20, marginRight: -20}}>
+          {errors[field.name]}
+        </InputErrorMessage>
+      )}
+    </>
   );
 };
 

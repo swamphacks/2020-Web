@@ -3,6 +3,8 @@ import {Formik, Form, Field} from 'formik';
 import * as yup from 'yup';
 import styled from 'styled-components';
 
+import * as firebase from 'firebase';
+
 import InputField from '../components/InputField';
 import TextAreaField from '../components/TextAreaField';
 
@@ -62,10 +64,19 @@ const PreRegister: React.FC = () => {
         initialValues={{}}
         validationSchema={schema}
         onSubmit={(values: FormData, {setSubmitting}) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+          const db = firebase.firestore();
+          let docRef = db
+            .collection('years')
+            .doc('2020')
+            .collection('preRegisteredUsers')
+            .doc(values.email);
+          let res = docRef
+            .set({
+              name: values.name,
+              dateRegistered: Date.now(),
+              suggestions: values.suggestions
+            })
+            .then(() => setSubmitting(false));
         }}
       >
         {({isSubmitting}) => (

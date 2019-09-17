@@ -4,17 +4,18 @@ import * as firebase from 'firebase/app';
 
 import ComingSoon from './pages/comingSoon';
 import PreRegister from './pages/preRegister';
-import {firebaseConfig} from './secrets';
+
+import firebaseConfig from './firebaseConfig.json';
+import './App.css';
 
 firebase.initializeApp(firebaseConfig);
 
 const App: React.FC = () => {
-  require('dotenv').config();
-  console.log('Y ' + process.env.TEST);
   return (
     <Router>
-      <Route path="/" exact component={ComingSoon} />
-      <Route path="/pre-register" exact component={PreRegister} />
+      <Route path="/comingsoon" exact component={ComingSoon} />
+      <Route path="/preregister" exact component={PreRegister} />
+      <Route path="/SponsorshipProspectus.pdf" exact />
     </Router>
   );
 };

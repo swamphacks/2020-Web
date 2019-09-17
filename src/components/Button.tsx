@@ -47,7 +47,6 @@ const CustomButton = styled.button<Props>`
 const Text = styled.div`
   position: absolute;
   font-family: Ink Free;
-  font-size: 2rem;
   line-height: 1.2;
   color: black;
 `;

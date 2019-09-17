@@ -10,7 +10,6 @@ import InputField from '../components/InputField';
 import TextAreaField from '../components/TextAreaField';
 import preRegisterSign from '../assets/pre-register-sign.svg';
 import Button from '../components/Button';
-import {tsPropertySignature} from '@babel/types';
 
 const PreRegisterSign = styled.img.attrs(props => ({
   src: preRegisterSign,
@@ -118,7 +117,7 @@ const PreRegister: React.FC<Props> = props => {
               <Button
                 variant="red"
                 style={{width: '40%'}}
-                onClick={() => props.history.push('/')}
+                onClick={() => props.history.push('/comingsoon')}
               >
                 Cancel
               </Button>

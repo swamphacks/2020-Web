@@ -14,12 +14,11 @@ import cloud4 from '../assets/cloud-4.svg';
 import cloud5 from '../assets/cloud-5.svg';
 import cloud6 from '../assets/cloud-6.svg';
 import officialText from '../assets/official_text_logo.svg';
-import boat from '../assets/gator-boat.svg';
+import boat from '../assets/Luis.svg';
 import '../css/styles.css';
+import '../App.css';
 
 import Button from '../components/Button';
-
-// Notes: Use styled components. Use react hooks in functional components for state.
 
 const Container = styled.div`
   min-height: 100vh;
@@ -28,6 +27,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 `;
 
 const SunGradient = styled.div`
@@ -215,7 +215,7 @@ interface Props extends RouteComponentProps<any> {}
 
 const ComingSoon: React.FC<Props> = props => {
   return (
-    <Container>
+    <Container id="root">
       <SunGradient />
       <Sun />
       <Water />
@@ -243,7 +243,7 @@ const ComingSoon: React.FC<Props> = props => {
         <OfficialText />
         <Button
           onClick={() => {
-            props.history.push('/pre-register');
+            props.history.push('/preregister');
           }}
         >
           Pre-Register!

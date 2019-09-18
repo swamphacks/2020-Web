@@ -18,7 +18,7 @@ const Input = styled.textarea.attrs(props => ({
   border-radius: 10px;
   min-width: 200px;
   width: 100%;
-  height: 200px;
+  height: 240px;
   font-size: 24px;
   margin: 5px 0;
   padding: 20px 20px;
@@ -27,6 +27,7 @@ const Input = styled.textarea.attrs(props => ({
     outline: none;
     box-shadow: 0 0 3pt 2pt #75f2a9;
   }
+  box-sizing: border-box;
 `;
 
 const TitleContainer = styled.div`
@@ -34,7 +35,7 @@ const TitleContainer = styled.div`
   font-weight: regular;
   color: white;
   font-size: 24px;
-  margin: 20px -20px;
+  margin: 20px 0;
 `;
 
 interface Props extends FieldProps {
@@ -62,9 +63,7 @@ const TextAreaField: React.FC<Props> = ({
         <Input {...field} {...props} />
       </div>
       {touched[field.name] && errors[field.name] && (
-        <InputErrorMessage style={{marginLeft: -20, marginRight: -20}}>
-          {errors[field.name]}
-        </InputErrorMessage>
+        <InputErrorMessage>{errors[field.name]}</InputErrorMessage>
       )}
     </>
   );

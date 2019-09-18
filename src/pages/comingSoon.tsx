@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {withRouter, RouteComponentProps} from 'react-router-dom';
 
@@ -19,6 +19,7 @@ import '../css/styles.css';
 import '../App.css';
 
 import Button from '../components/Button';
+import Banner from '../components/Banner';
 
 const Container = styled.div`
   min-height: 100vh;
@@ -152,7 +153,7 @@ const Dock = styled.img.attrs(props => ({
 }))`
   min-width: 600px;
   position: absolute;
-  bottom: 0;
+  bottom: -50px;
   width: 35vw;
 `;
 
@@ -214,6 +215,14 @@ const Boat = styled.img.attrs(props => ({
 interface Props extends RouteComponentProps<any> {}
 
 const ComingSoon: React.FC<Props> = props => {
+  const [bannerMsg, setBannerMsg] = useState(null);
+
+  useEffect(() => {
+    if (props.history.location.state) {
+      setBannerMsg(props.history.location.state.message);
+    }
+  });
+
   return (
     <Container id="root">
       <SunGradient />
@@ -256,6 +265,16 @@ const ComingSoon: React.FC<Props> = props => {
           Sponsor Us!
         </Button>
       </div>
+      {bannerMsg && (
+        <Banner
+          onClick={() => {
+            props.history.location.state = null;
+            setBannerMsg(null);
+          }}
+        >
+          {bannerMsg}
+        </Banner>
+      )}
     </Container>
   );
 };

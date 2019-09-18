@@ -18,7 +18,7 @@ const Input = styled.input`
   border-radius: 10px;
   min-width: 200px;
   width: 100%;
-  height: 50px;
+  height: 74px;
   font-size: 24px;
   margin: 5px 0;
   padding: 12px 20px;
@@ -26,6 +26,7 @@ const Input = styled.input`
     outline: none;
     box-shadow: 0 0 3pt 2pt #75f2a9;
   }
+  box-sizing: border-box;
 `;
 
 const InputField: React.FC<Props> = ({

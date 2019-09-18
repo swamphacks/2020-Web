@@ -19,6 +19,8 @@
   --sub-heading: 1.4rem;
   --heading: 1.8rem;
   --heading-bg: 2rem;
+  --button-width: 80vw;
+  --button-container-dir: column;
 }
 
 @media screen and (min-width: 800px) {
@@ -28,6 +30,8 @@
     --sub-heading: 1.777rem;
     --heading: 2.369rem;
     --heading-bg: 3.157rem;
+    --button-width: 35vw;
+    --button-container-dir: row;
   }
 }
 
@@ -38,12 +42,19 @@
     --sub-heading: 1.777rem;
     --heading: 2.369rem;
     --heading-bg: 3.157rem;
+    --button-width: 50vw;
+    --button-container-dir: column;
   }
 }
 
 button {
   font-size: var(--heading);
   line-height: var(--line-height-large);
+  width: var(--button-width);
+}
+
+.button-container {
+  flex-direction: var(--button-container-dir);
 }
 
 section {

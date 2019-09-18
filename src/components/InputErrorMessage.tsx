@@ -13,6 +13,7 @@ const ErrorContainer = styled.div`
   font-weight: bold;
   color: white;
   font-size: 16px;
+  box-sizing: border-box;
 `;
 
 interface Props

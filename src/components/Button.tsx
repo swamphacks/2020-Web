@@ -24,10 +24,6 @@ const CustomButton = styled.button<Props>`
   margin: 0.25rem;
   cursor: pointer;
 
-  min-width: 300px;
-
-  max-width: 500px;
-
   -webkit-transition: -webkit-transform 0.25s ease;
 
   transition: -webkit-transform 0.25s ease;

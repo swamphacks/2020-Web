@@ -1,18 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import '../App.css';
+
 const ErrorContainer = styled.div`
   background-color: red;
   min-width: 200px;
   width: 100%;
-  padding: 12px 20px;
+  padding: 8px 20px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   font-family: Avenir, Roboto, Sans-serif;
-  font-weight: bold;
   color: white;
-  font-size: 16px;
+  font-size: var(--paragraph);
+  line-height: var(--line-height-xsmall);
   box-sizing: border-box;
 `;
 

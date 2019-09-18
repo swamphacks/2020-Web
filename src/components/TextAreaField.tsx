@@ -2,6 +2,8 @@ import React from 'react';
 import {FieldProps} from 'formik';
 import styled from 'styled-components';
 
+import '../App.css';
+
 import InputErrorMessage from './InputErrorMessage';
 
 const Input = styled.textarea.attrs(props => ({
@@ -19,7 +21,8 @@ const Input = styled.textarea.attrs(props => ({
   min-width: 200px;
   width: 100%;
   height: 240px;
-  font-size: 24px;
+  font-size: var(--paragraph);
+  line-height: var(--paragraph-height);
   margin: 5px 0;
   padding: 20px 20px;
   resize: none;
@@ -34,7 +37,8 @@ const TitleContainer = styled.div`
   font-family: Avenir, Roboto, Sans-serif;
   font-weight: regular;
   color: white;
-  font-size: 24px;
+  font-size: var(--sub-heading);
+  line-height: var(--line-height-small);
   margin: 20px 0;
 `;
 

@@ -1,12 +1,7 @@
-import React, {useState, ReactNode} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import buttonImage from '../assets/buttonImage.svg';
-import buttonImageRed from '../assets/dark-red-wood-button.svg';
-import buttonImageGreen from '../assets/dark-green-wood-button.svg';
-
 const CustomButton = styled.button<Props>`
-  z-index: 1;
   border: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,30 +35,16 @@ const CustomButton = styled.button<Props>`
   }
 `;
 
-const Text = styled.div`
-  position: absolute;
-  font-family: Ink Free;
-  line-height: 1.2;
-  color: black;
-`;
-
 interface Props
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
   style?: any;
-  variant?: 'red' | 'green' | 'default';
+  icon?: any;
 }
 
-const Button: React.FC<Props> = props => {
-  const {variant} = props || 'default';
-  let src = buttonImage;
-  if (variant === 'red') {
-    src = buttonImageRed;
-  } else if (variant === 'green') {
-    src = buttonImageGreen;
-  }
+const IconButton: React.FC<Props> = props => {
   return (
     <CustomButton
       onClick={props.onClick}
@@ -71,12 +52,9 @@ const Button: React.FC<Props> = props => {
       disabled={props.disabled}
       style={props.style}
     >
-      <img src={src} width={'100%'} />
-      <Text>
-        <h3>{props.children}</h3>
-      </Text>
+      <img src={props.icon} width={'100%'} />
     </CustomButton>
   );
 };
 
-export default Button;
+export default IconButton;

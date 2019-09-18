@@ -21,6 +21,7 @@
   --heading-bg: 2rem;
   --button-width: 80vw;
   --button-container-dir: column;
+  font-family: Avenir, Roboto, Sans-serif;
 }
 
 @media screen and (min-width: 800px) {

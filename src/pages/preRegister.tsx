@@ -9,20 +9,9 @@ import '../css/preRegister.css';
 
 import InputField from '../components/InputField';
 import TextAreaField from '../components/TextAreaField';
-import preRegisterSign from '../assets/pre-register-sign.svg';
 import Button from '../components/Button';
 import ButtonContainer from '../components/ButtonContainer';
-
-const PreRegisterSign = styled.img.attrs(props => ({
-  src: preRegisterSign,
-  className: 'hidden-image'
-}))`
-  width: 100%;
-  min-width: 500px;
-  margin-top: -300px;
-  padding-bottom: 80px;
-  font-family: Ink Free;
-`;
+import WoodenSign from '../components/WoodenSign';
 
 const Background = styled.div`
   background-image: radial-gradient(
@@ -35,7 +24,7 @@ const Background = styled.div`
   display: flex;
   flex-grow: 1;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: column;
 `;
 
@@ -70,7 +59,7 @@ const PreRegister: React.FC<Props> = props => {
   return (
     <Background>
       <div className={'content-container'}>
-        <PreRegisterSign />
+        <WoodenSign>Pre-Register!</WoodenSign>
         <Formik
           initialValues={{}}
           validationSchema={schema}

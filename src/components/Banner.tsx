@@ -1,42 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import '../App.css';
+
 const BannerContainer = styled.div`
   background-color: blue;
   width: 100%;
   padding: 12px 20px;
-  margin: 0 20px;
   display: flex;
   align-items: center;
-  font-family: Avenir, Roboto, Sans-serif;
-  font-weight: regular;
   color: white;
   font-size: 16px;
   position: absolute;
+  box-sizing: border-box;
   top: 0;
+  z-index: 99;
 `;
 
 const CloseButton = styled.button`
   border: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   background: transparent;
   white-space: nowrap;
   text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  margin: 0.25rem;
   cursor: pointer;
   font-family: Avenir, Roboto, Sans-serif;
   font-weight: bold;
   color: white;
   font-size: 21px;
+  z-index: 100;
+  width: 5rem;
 `;
 
 interface Props {
@@ -47,7 +39,7 @@ const Banner: React.FC<Props> = props => {
   return (
     <BannerContainer>
       <CloseButton onClick={() => props.onClick()}>X</CloseButton>
-      {props.children}
+      <p>{props.children}</p>
     </BannerContainer>
   );
 };

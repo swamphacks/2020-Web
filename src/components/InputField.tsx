@@ -2,6 +2,8 @@ import React from 'react';
 import {FieldProps} from 'formik';
 import styled from 'styled-components';
 
+import '../App.css';
+
 import InputErrorMessage from './InputErrorMessage';
 
 interface Props extends FieldProps {}
@@ -18,8 +20,8 @@ const Input = styled.input`
   border-radius: 10px;
   min-width: 200px;
   width: 100%;
-  height: 74px;
-  font-size: 24px;
+  font-size: var(--paragraph);
+  line-height: var(--paragraph-height);
   margin: 5px 0;
   padding: 12px 20px;
   :focus {

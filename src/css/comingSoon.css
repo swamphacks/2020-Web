@@ -1,0 +1,40 @@
+:root {
+  /* Mobile */
+  --content-width: 90vw;
+}
+
+.social-container {
+  position: relative;
+  justify-content: center;
+}
+
+@media screen and (min-width: 800px) {
+  /* Desktop */
+  :root {
+    --content-width: 40vw;
+  }
+  .social-container {
+    position: absolute;
+    bottom: 0;
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (max-width: 800px) and (min-width: 500px) {
+  /* Tablets */
+  :root {
+    --content-width: 60vw;
+  }
+  .social-container {
+    position: relative;
+    justify-content: center;
+  }
+}
+
+.content-container {
+  width: var(--content-width);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}

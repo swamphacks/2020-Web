@@ -22,6 +22,7 @@ import snapIcon from '../assets/snap-icon.svg';
 
 import '../css/styles.css';
 import '../App.css';
+import '../css/comingSoon.css';
 
 import Button from '../components/Button';
 import Banner from '../components/Banner';
@@ -57,7 +58,7 @@ const Sun = styled.img.attrs(props => ({
   min-width: 720px;
   position: absolute;
   top: 8vh;
-  animation: loading 360s linear infinite;
+  animation: loading 120s linear infinite;
   @keyframes loading {
     0% {
       transform: rotate(0);
@@ -159,7 +160,6 @@ const OfficialText = styled.img.attrs(props => ({
 }))`
   display: flex;
   z-index: 6;
-  min-width: 400px;
   max-width: 800px;
 `;
 
@@ -171,7 +171,7 @@ const Dock = styled.img.attrs(props => ({
   position: absolute;
   bottom: -50px;
   width: 35vw;
-  z-index: 3;
+  z-index: 5;
 `;
 
 const BackBushes = styled.img.attrs(props => ({
@@ -181,7 +181,7 @@ const BackBushes = styled.img.attrs(props => ({
   min-width: 1920px;
   width: 100vw;
   position: absolute;
-  bottom: 35vh;
+  bottom: 32vh;
   z-index: 3;
 `;
 
@@ -211,6 +211,7 @@ const Water = styled.div`
   background-image: radial-gradient(circle at 0 125%, #5599ff 15%, #00ffff 85%);
   height: 40vh;
   width: 100vw;
+  min-width: 1920px;
   position: absolute;
   bottom: 0;
   z-index: 2;
@@ -237,16 +238,6 @@ const Boat = styled.img.attrs(props => ({
   z-index: 4;
 `;
 
-const SocialContainer = styled(ButtonContainer)`
-  justify-content: flex-end;
-  flex-direction: row;
-  position: absolute;
-  bottom: 0;
-  padding: 20px 20px;
-  box-sizing: border-box;
-  z-index: 6;
-`;
-
 interface Props extends RouteComponentProps<any> {}
 
 const ComingSoon: React.FC<Props> = props => {
@@ -259,7 +250,7 @@ const ComingSoon: React.FC<Props> = props => {
   });
 
   return (
-    <Container id="root">
+    <Container>
       <SunGradient />
       <Sun />
       <Water />
@@ -276,13 +267,8 @@ const ComingSoon: React.FC<Props> = props => {
       <Dock />
 
       <div
+        className="content-container"
         style={{
-          width: '40%',
-          height: '40%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-          flexDirection: 'column',
           zIndex: 7
         }}
       >
@@ -303,6 +289,45 @@ const ComingSoon: React.FC<Props> = props => {
         >
           Sponsor Us!
         </Button>
+        <div
+          className="social-container"
+          style={{
+            display: 'flex',
+            padding: '20px 20px 20px 20px',
+            boxSizing: 'border-box',
+            zIndex: 6,
+            width: '100%'
+          }}
+        >
+          <IconButton
+            icon={fbIcon}
+            style={{height: 50, width: 50}}
+            onClick={() => {
+              window.open('https://www.facebook.com/SwampHacks/', '_blank');
+            }}
+          />
+          <IconButton
+            icon={igIcon}
+            style={{height: 50, width: 50}}
+            onClick={() => {
+              window.open('https://www.instagram.com/ufswamphacks/', '_blank');
+            }}
+          />
+          <IconButton
+            icon={twitterIcon}
+            style={{height: 50, width: 50}}
+            onClick={() => {
+              window.open('https://twitter.com/swamphacks', '_blank');
+            }}
+          />
+          {/* <IconButton
+            icon={snapIcon}
+            style={{height: 50, width: 50}}
+            onClick={() => {
+              window.location.href = 'https://twitter.com/swamphacks?lang=en';
+            }}
+          /> */}
+        </div>
       </div>
       {bannerMsg && (
         <Banner
@@ -314,12 +339,6 @@ const ComingSoon: React.FC<Props> = props => {
           {bannerMsg}
         </Banner>
       )}
-      <SocialContainer>
-        <IconButton icon={fbIcon} style={{height: 50, width: 50}} />
-        <IconButton icon={igIcon} style={{height: 50, width: 50}} />
-        <IconButton icon={twitterIcon} style={{height: 50, width: 50}} />
-        <IconButton icon={snapIcon} style={{height: 50, width: 50}} />
-      </SocialContainer>
     </Container>
   );
 };

@@ -1,14 +1,4 @@
 :root {
-  /* Colours */
-  --shell-dark-pink: #ff1d8e;
-  --shell-light-pink: #e86ba4;
-  --shell-teal: #22c3d5;
-  --shell-navy: #172a61;
-  --shell-sand: #fbedca;
-  --shell-dark-brown: #665b50;
-  --shell-mid-brown: #8e7a69;
-  --shell-light-brown: #9e8d7d;
-  --shell-gradient: linear-gradient(#22c3d5, #172a61);
   /* line heights */
   --line-height-xsmall: 1.5384615em;
   --line-height-small: 1.25em;
@@ -88,31 +78,26 @@ section h1 {
 
 h1 {
   font-size: var(--heading-bg);
-  font-weight: 900;
   line-height: var(--line-height-small);
 }
 
 h2 {
   font-size: var(--heading);
-  font-weight: 700;
   line-height: var(--line-height-small);
 }
 
 h3 {
   font-size: var(--sub-heading);
-  font-weight: 600;
 }
 
 h4 {
   font-size: var(--paragraph);
   line-height: var(--paragraph-height);
-  font-weight: 400;
 }
 
 p {
   font-size: var(--paragraph);
   line-height: var(--paragraph-height);
-  font-weight: 500;
 }
 
 #root {

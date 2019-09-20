@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import '../css/styles.css';
+
 const CustomButton = styled.button<Props>`
-  z-index: 1;
+  z-index: 50;
   border: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -53,7 +55,13 @@ const IconButton: React.FC<Props> = props => {
       disabled={props.disabled}
       style={props.style}
     >
-      <img src={props.icon} width={'100%'} />
+      <object
+        type="image/svg+xml"
+        data={props.icon}
+        width="100%"
+        className="hidden-image"
+      />
+      {/* <img src={props.icon} width={'100%'} style={{zIndex: 2}} /> */}
     </CustomButton>
   );
 };

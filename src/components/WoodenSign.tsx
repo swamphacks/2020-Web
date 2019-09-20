@@ -23,6 +23,7 @@ const Sign = styled.img.attrs(props => ({
   className: 'hidden-image'
 }))`
   width: 100%;
+  min-width: var(--min-width-sign);
   max-width: 600px;
   z-index: 1;
 `;

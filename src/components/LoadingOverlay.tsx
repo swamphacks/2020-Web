@@ -1,20 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Spinner from 'react-bootstrap/Spinner';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import Spinner from '@atlaskit/spinner';
 
 import '../App.css';
 
 const Container = styled.div`
-  position: absolute;
+  position: fixed;
+  background-color: black;
   width: 100px;
   height: 100px;
-  background-color: black;
   border-radius: 10px;
-  left: calc(50vw - 50px);
+  left: ${window.innerWidth / 2 - 50}px;
   z-index: 999;
-  top: calc(50vh - 50px);
+  top: ${window.innerHeight / 2 - 50}px;
   box-sizing: border-box;
   padding: 10px;
   display: flex;
@@ -25,9 +24,7 @@ const Container = styled.div`
 const Banner: React.FC = () => {
   return (
     <Container>
-      <Spinner animation="border" role="status" variant="light">
-        <span className="sr-only">Loading...</span>
-      </Spinner>
+      <Spinner size={50} invertColor />
     </Container>
   );
 };

@@ -261,6 +261,7 @@ const ComingSoon: React.FC<Props> = props => {
     if (props.history.location.state) {
       setBannerMsg(props.history.location.state.message);
     }
+    window.scrollTo(0, 0);
   });
 
   return (

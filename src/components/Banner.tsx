@@ -6,7 +6,7 @@ import IconButton from './IconButton';
 import closeIcon from '../assets/close-icon.svg';
 
 const BannerContainer = styled.div`
-  background-color: blue;
+  background-color: black;
   width: 100%;
   padding: 12px 20px;
   display: flex;

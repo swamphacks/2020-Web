@@ -40,9 +40,9 @@ const FormContainer = styled(Form)`
 `;
 
 type FormData = {
-  name?: string;
-  email?: string;
-  suggestions?: string;
+  name: string;
+  email: string;
+  suggestions: string;
 };
 
 const schema = yup.object().shape({
@@ -63,7 +63,7 @@ const PreRegister: React.FC<Props> = props => {
       <div className={'content-container'}>
         <WoodenSign>Pre-Register!</WoodenSign>
         <Formik
-          initialValues={{}}
+          initialValues={{name: '', email: '', suggestions: ''}}
           validationSchema={schema}
           onSubmit={(values: FormData, {setSubmitting}) => {
             const db = firebase.firestore();
@@ -71,12 +71,12 @@ const PreRegister: React.FC<Props> = props => {
               .collection('years')
               .doc('2020')
               .collection('preRegisteredUsers')
-              .doc(values.email);
+              .doc(values.email.toLowerCase().trim());
             let res = docRef
               .set({
-                name: values.name,
+                name: values.name.trim(),
                 dateRegistered: Date.now(),
-                suggestions: values.suggestions
+                suggestions: values.suggestions.trim()
               })
               .then(() => {
                 setSubmitting(false);

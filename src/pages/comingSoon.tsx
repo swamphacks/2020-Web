@@ -70,6 +70,20 @@ const Sun = styled.img.attrs(props => ({
   z-index: 1;
 `;
 
+const horizontalTraverse = (delay?: number) => `
+  animation-delay: ${delay || 0}s;
+  -webkit-animation-delay: ${delay || 0}s;
+  animation: h-traverse ${Math.random() * 20 + 60}s linear infinite;
+  @keyframes h-traverse {
+    0% {
+      left: -400px;
+    }
+    100% {
+      left: 100vw;
+    }
+  }
+`;
+
 const bounceCss = () => `
   animation: bounce ${Math.random() * 8 + 3}s linear infinite alternate;
   @keyframes bounce {
@@ -84,74 +98,74 @@ const bounceCss = () => `
 
 const Cloud1 = styled.img.attrs(props => ({
   src: cloud1,
-  width: 300,
   className: 'hidden-image'
 }))`
+  width: 450px;
   position: absolute;
   top: 60px;
   left: 60px;
-  ${bounceCss()}
-  z-index: 2;
+  ${bounceCss()};
+  z-index: 1;
 `;
 
 const Cloud2 = styled.img.attrs(props => ({
   src: cloud2,
-  width: 200,
   className: 'hidden-image'
 }))`
+  width: 375px;
   position: absolute;
   top: 180px;
   left: 80px;
-  ${bounceCss()}
-  z-index: 2;
+  ${bounceCss()};
+  z-index: 1;
 `;
 
 const Cloud3 = styled.img.attrs(props => ({
   src: cloud3,
-  width: 240,
   className: 'hidden-image'
 }))`
+  width: 350px;
   position: absolute;
   top: 300px;
   left: -80px;
-  ${bounceCss()}
-  z-index: 2;
+  ${bounceCss()};
+  z-index: 1;
 `;
 
 const Cloud4 = styled.img.attrs(props => ({
   src: cloud4,
-  width: 240,
   className: 'hidden-image'
 }))`
+  width: 350px;
   position: absolute;
   top: 20px;
   right: 160px;
-  ${bounceCss()}
-  z-index: 2;
+  ${bounceCss()};
+  z-index: 1;
 `;
 
 const Cloud5 = styled.img.attrs(props => ({
   src: cloud5,
-  width: 340,
   className: 'hidden-image'
 }))`
+  width: 450px;
   position: absolute;
   top: 120px;
   right: 20px;
-  ${bounceCss()}
-  z-index: 2;
+  ${bounceCss()};
+  z-index: 1;
 `;
 
 const Cloud6 = styled.img.attrs(props => ({
   src: cloud6,
-  width: 160,
   className: 'hidden-image'
 }))`
+  width: 375px;
   position: absolute;
   top: 260px;
   right: 30px;
-  ${bounceCss()}
-  z-index: 2;
+  ${bounceCss()};
+  z-index: 1;
 `;
 
 const OfficialText = styled.img.attrs(props => ({
@@ -226,7 +240,7 @@ const Boat = styled.img.attrs(props => ({
   position: absolute;
   bottom: 25vh;
   right: 0;
-  animation: translate 120s linear infinite;
+  animation: translate 100s linear infinite;
   @keyframes translate {
     from {
       right: -15vw;

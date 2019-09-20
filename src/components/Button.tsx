@@ -5,6 +5,8 @@ import buttonImage from '../assets/buttonImage.svg';
 import buttonImageRed from '../assets/dark-red-wood-button.svg';
 import buttonImageGreen from '../assets/dark-green-wood-button.svg';
 
+import '../css/styles.css';
+
 const CustomButton = styled.button<Props>`
   z-index: 1;
   border: 0;

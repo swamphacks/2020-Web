@@ -46,6 +46,7 @@ type FormData = {
 
 const schema = yup.object().shape({
   name: yup.string().required('This field is required.'),
+  // .matches(RegExp("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"))
   email: yup
     .string()
     .email('Must be a valid email.')

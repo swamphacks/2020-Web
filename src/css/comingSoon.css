@@ -3,6 +3,34 @@
   --content-width: 90vw;
 }
 
+.cloud {
+  max-width: 200px;
+}
+
+.cloud1 {
+  visibility: hidden;
+}
+
+.cloud2 {
+  visibility: hidden;
+}
+
+.cloud3 { 
+  visibility: hidden;
+}
+
+.cloud4 { 
+  visibility: hidden;
+}
+
+.cloud5 { 
+  visibility: hidden;
+}
+
+.cloud6 { 
+  visibility: hidden;
+}
+
 .social-container {
   position: relative;
   justify-content: center;
@@ -18,6 +46,34 @@
     bottom: 0;
     justify-content: flex-end;
   }
+
+  .cloud {
+    max-width: 300px;
+  }
+
+  .cloud1 {
+    visibility: visible;
+  }
+  
+  .cloud2 {
+    visibility: visible;
+  }
+  
+  .cloud3 { 
+    visibility: visible;
+  }
+  
+  .cloud4 { 
+    visibility: visible;
+  }
+  
+  .cloud5 { 
+    visibility: visible;
+  }
+  
+  .cloud6 { 
+    visibility: visible;
+  }
 }
 
 @media screen and (max-width: 800px) and (min-width: 500px) {
@@ -28,6 +84,30 @@
   .social-container {
     position: relative;
     justify-content: center;
+  }
+
+  .cloud1 {
+    visibility: visible;
+  }
+  
+  .cloud2 {
+    visibility: visible;
+  }
+  
+  .cloud3 { 
+    visibility: visible;
+  }
+  
+  .cloud4 { 
+    visibility: visible;
+  }
+  
+  .cloud5 { 
+    visibility: visible;
+  }
+  
+  .cloud6 { 
+    visibility: visible;
   }
 }
 

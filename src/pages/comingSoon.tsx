@@ -98,19 +98,19 @@ const bounceCss = () => `
 
 const Cloud1 = styled.img.attrs(props => ({
   src: cloud1,
-  className: 'hidden-image'
+  className: 'hidden-image cloud cloud1'
 }))`
   width: 450px;
   position: absolute;
   top: 60px;
-  left: 60px;
+  left: 10%;
   ${bounceCss()};
   z-index: 1;
 `;
 
 const Cloud2 = styled.img.attrs(props => ({
   src: cloud2,
-  className: 'hidden-image'
+  className: 'hidden-image cloud cloud2'
 }))`
   width: 375px;
   position: absolute;
@@ -122,7 +122,7 @@ const Cloud2 = styled.img.attrs(props => ({
 
 const Cloud3 = styled.img.attrs(props => ({
   src: cloud3,
-  className: 'hidden-image'
+  className: 'hidden-image cloud cloud3'
 }))`
   width: 350px;
   position: absolute;
@@ -134,7 +134,7 @@ const Cloud3 = styled.img.attrs(props => ({
 
 const Cloud4 = styled.img.attrs(props => ({
   src: cloud4,
-  className: 'hidden-image'
+  className: 'hidden-image cloud cloud4'
 }))`
   width: 350px;
   position: absolute;
@@ -146,7 +146,7 @@ const Cloud4 = styled.img.attrs(props => ({
 
 const Cloud5 = styled.img.attrs(props => ({
   src: cloud5,
-  className: 'hidden-image'
+  className: 'hidden-image cloud cloud5'
 }))`
   width: 450px;
   position: absolute;
@@ -158,7 +158,7 @@ const Cloud5 = styled.img.attrs(props => ({
 
 const Cloud6 = styled.img.attrs(props => ({
   src: cloud6,
-  className: 'hidden-image'
+  className: 'hidden-image cloud cloud6'
 }))`
   width: 375px;
   position: absolute;

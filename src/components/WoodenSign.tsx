@@ -21,7 +21,7 @@ const Sign = styled.img.attrs(props => ({
   src: buttonImage,
   className: 'hidden-image'
 }))`
-  width: 100%;
+  width: 320px;
   max-width: 600px;
   z-index: 1;
 `;

@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import '../App.css';
+import IconButton from './IconButton';
+import closeIcon from '../assets/close-icon.svg';
 
 const BannerContainer = styled.div`
   background-color: blue;
@@ -17,20 +19,6 @@ const BannerContainer = styled.div`
   z-index: 99;
 `;
 
-const CloseButton = styled.button`
-  border: 0;
-  background: transparent;
-  white-space: nowrap;
-  text-decoration: none;
-  cursor: pointer;
-  font-family: Avenir, Roboto, Sans-serif;
-  font-weight: bold;
-  color: white;
-  font-size: 21px;
-  z-index: 100;
-  width: 5rem;
-`;
-
 interface Props {
   onClick: Function;
 }
@@ -38,7 +26,11 @@ interface Props {
 const Banner: React.FC<Props> = props => {
   return (
     <BannerContainer>
-      <CloseButton onClick={() => props.onClick()}>X</CloseButton>
+      <IconButton
+        icon={closeIcon}
+        onClick={() => props.onClick()}
+        style={{color: 'white', width: 50, minWidth: 50}}
+      />
       <p>{props.children}</p>
     </BannerContainer>
   );

@@ -12,6 +12,7 @@ import TextAreaField from '../components/TextAreaField';
 import Button from '../components/Button';
 import ButtonContainer from '../components/ButtonContainer';
 import WoodenSign from '../components/WoodenSign';
+import LoadingOverlay from '../components/LoadingOverlay';
 
 const Background = styled.div`
   background-image: radial-gradient(
@@ -93,6 +94,7 @@ const PreRegister: React.FC<Props> = props => {
                 name="name"
                 placeholder="Name"
                 component={InputField}
+                autoFocus={true}
               />
               <br />
               <Field
@@ -122,6 +124,7 @@ const PreRegister: React.FC<Props> = props => {
                 </Button>
               </ButtonContainer>
               <br />
+              {isSubmitting && <LoadingOverlay />}
             </FormContainer>
           )}
         </Formik>

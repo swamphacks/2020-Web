@@ -60,6 +60,7 @@ const IconButton: React.FC<Props> = props => {
         data={props.icon}
         width="100%"
         className="hidden-image"
+        color="white"
       />
       {/* <img src={props.icon} width={'100%'} style={{zIndex: 2}} /> */}
     </CustomButton>

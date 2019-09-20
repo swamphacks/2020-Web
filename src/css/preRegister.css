@@ -1,12 +1,14 @@
 :root {
   /* Mobile */
   --content-width: 90vw;
+  --min-width-sign: 200px;
 }
 
 @media screen and (min-width: 800px) {
   /* Desktop */
   :root {
     --content-width: 40vw;
+    --min-width-sign: 600px;
   }
 }
 
@@ -14,6 +16,7 @@
   /* Tablets */
   :root {
     --content-width: 60vw;
+    --min-width-sign: 400px;
   }
 }
 

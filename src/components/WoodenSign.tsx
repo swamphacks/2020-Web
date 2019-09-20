@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import '../App.css';
 import '../css/styles.css';
+import '../css/preRegister.css';
 
 import buttonImage from '../assets/buttonImage.svg';
 import ropeImage from '../assets/rope.svg';
@@ -21,7 +22,7 @@ const Sign = styled.img.attrs(props => ({
   src: buttonImage,
   className: 'hidden-image'
 }))`
-  width: 320px;
+  width: 100%;
   max-width: 600px;
   z-index: 1;
 `;
@@ -44,6 +45,7 @@ const Container = styled.div`
   -ms-flex-pack: center;
   justify-content: center;
   position: relative;
+  min-width: var(--min-width-sign);
 `;
 
 interface Props

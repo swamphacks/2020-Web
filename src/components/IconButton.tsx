@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CustomButton = styled.button<Props>`
+  z-index: 1;
   border: 0;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -90,36 +90,36 @@ const PreRegister: React.FC<Props> = props => {
           {({isSubmitting}) => (
             <FormContainer>
               <Field
-                type="name"
-                name="name"
-                placeholder="Name"
+                type='name'
+                name='name'
+                placeholder='Name'
                 component={InputField}
                 autoFocus={true}
               />
               <br />
               <Field
-                type="email"
-                name="email"
-                placeholder="Email"
+                type='email'
+                name='email'
+                placeholder='Email'
                 component={InputField}
               />
               <br />
               <Field
-                type="suggestions"
-                name="suggestions"
-                placeholder="React, MongoDB, machine learning, etc..."
-                title="What topics would you like to see in workshops at SwampHacks VI?"
+                type='suggestions'
+                name='suggestions'
+                placeholder='React, MongoDB, machine learning, etc...'
+                title='What topics would you like to see in workshops at SwampHacks VI?'
                 component={TextAreaField}
               />
               <br />
               <ButtonContainer>
                 <Button
-                  variant="red"
+                  variant='red'
                   onClick={() => props.history.push('/comingsoon')}
                 >
                   Cancel
                 </Button>
-                <Button type="submit" disabled={isSubmitting} variant="green">
+                <Button type='submit' disabled={isSubmitting} variant='green'>
                   Submit
                 </Button>
               </ButtonContainer>

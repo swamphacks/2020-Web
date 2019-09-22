@@ -13,7 +13,7 @@ import cloud3 from '../assets/cloud-3.svg';
 import cloud4 from '../assets/cloud-4.svg';
 import cloud5 from '../assets/cloud-5.svg';
 import cloud6 from '../assets/cloud-6.svg';
-import officialText from '../assets/official_text_logo.svg';
+import officialText from '../assets/Official New Text.svg';
 import boat from '../assets/Luis.svg';
 import fbIcon from '../assets/fb-icon.svg';
 import igIcon from '../assets/ig-icon.svg';
@@ -68,20 +68,6 @@ const Sun = styled.img.attrs(props => ({
     }
   }
   z-index: 1;
-`;
-
-const horizontalTraverse = (delay?: number) => `
-  animation-delay: ${delay || 0}s;
-  -webkit-animation-delay: ${delay || 0}s;
-  animation: h-traverse ${Math.random() * 20 + 60}s linear infinite;
-  @keyframes h-traverse {
-    0% {
-      left: -400px;
-    }
-    100% {
-      left: 100vw;
-    }
-  }
 `;
 
 const bounceCss = () => `
@@ -172,7 +158,7 @@ const OfficialText = styled.img.attrs(props => ({
   src: officialText,
   className: 'hidden-image'
 }))`
-  display: flex;
+  width: 100%;
   z-index: 6;
   max-width: 800px;
 `;
@@ -282,7 +268,7 @@ const ComingSoon: React.FC<Props> = props => {
       <Dock />
 
       <div
-        className="content-container"
+        className='content-container'
         style={{
           zIndex: 7
         }}
@@ -292,7 +278,7 @@ const ComingSoon: React.FC<Props> = props => {
           onClick={() => {
             props.history.push('/preregister');
           }}
-          style={{maxWidth: 400}}
+          style={{maxWidth: 350}}
         >
           Pre-Register!
         </Button>
@@ -300,12 +286,12 @@ const ComingSoon: React.FC<Props> = props => {
           onClick={() => {
             window.location.href = 'mailto:sponsors@swamphacks.com';
           }}
-          style={{maxWidth: 400}}
+          style={{maxWidth: 350}}
         >
           Sponsor Us!
         </Button>
         <div
-          className="social-container"
+          className='social-container'
           style={{
             display: 'flex',
             padding: '20px 20px 20px 20px',

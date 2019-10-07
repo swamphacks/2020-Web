@@ -10,13 +10,24 @@ import './App.css';
 
 firebase.initializeApp(firebaseConfig);
 
+firebase
+  .auth()
+  .signInAnonymously()
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage);
+    // ...
+  });
+
 const App: React.FC = () => {
   return (
     <Router>
-      <Route path="/" exact component={() => <Redirect to="/comingsoon" />} />
-      <Route path="/comingsoon" exact component={ComingSoon} />
-      <Route path="/preregister" exact component={PreRegister} />
-      <Route path="/SponsorshipProspectus.pdf" exact />
+      <Route path='/' exact component={() => <Redirect to='/comingsoon' />} />
+      <Route path='/comingsoon' exact component={ComingSoon} />
+      <Route path='/preregister' exact component={PreRegister} />
+      <Route path='/SponsorshipProspectus.pdf' exact />
     </Router>
   );
 };
